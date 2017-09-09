@@ -35,3 +35,9 @@ Song.create!(name: "Letting Go (MC)", year: 2006, genre: "New Age", artist: ottm
 
 # Get all the songs for the first artist:
 # irb > pp Artist.find(1).songs
+
+# Photos (Don't seed this yet)
+# ----------------------------
+# photo_susan_wong = Photo.create!(remote_image_url: "https://mvdb2b.com/i/300dpi/EVSA249.jpg", artist: susan_wong)
+# photo_yiruma = Photo.create!(remote_image_url: "https://mvdb2b.com/i/300dpi/EVSA249.jpg", artist: yiruma)
+# photo_ottmar_liebert = Photo.create!(remote_image_url: "https://images-na.ssl-images-amazon.com/images/I/412o8WOE%2BgL.jpg", artist: ottmar_liebert)
