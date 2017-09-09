@@ -38,6 +38,6 @@ Song.create!(name: "Letting Go (MC)", year: 2006, genre: "New Age", artist: ottm
 
 # Photos (Don't seed this yet)
 # ----------------------------
-# photo_susan_wong = Photo.create!(remote_image_url: "https://mvdb2b.com/i/300dpi/EVSA249.jpg", artist: susan_wong)
-# photo_yiruma = Photo.create!(remote_image_url: "https://mvdb2b.com/i/300dpi/EVSA249.jpg", artist: yiruma)
-# photo_ottmar_liebert = Photo.create!(remote_image_url: "https://images-na.ssl-images-amazon.com/images/I/412o8WOE%2BgL.jpg", artist: ottmar_liebert)
+photo_susan_wong = Photo.create!(remote_image_url: "https://mvdb2b.com/i/300dpi/EVSA249.jpg", artist: susan_wong)
+photo_yiruma = Photo.create!(remote_image_url: "http://kpopplus.com/14693-thickbox/yiruma-blind-film-8th-album-cd.jpg", artist: yiruma)
+photo_ottmar_liebert = Photo.create!(remote_image_url: "https://images-na.ssl-images-amazon.com/images/I/412o8WOE%2BgL.jpg", artist: ottmar_liebert)
