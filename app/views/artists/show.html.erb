@@ -1,1 +1,13 @@
-<p>Artist Show page</p>
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @artist.name %></div>
+  <h4>Songs</h4>
+  <div class="panel-body">
+    <ul>
+      <% @artist.songs.each do |song| %>
+      <li><%= song.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= link_to "Back", artists_path, class: "btn btn-default" %>
