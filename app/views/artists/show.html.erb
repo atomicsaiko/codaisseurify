@@ -1,4 +1,11 @@
 <div class="panel panel-primary">
+  <div class="panel-heading">Add a new song</div>
+    <div class="panel-body">
+    <%= render 'artists/form' %>
+  </div>
+</div>
+
+<div class="panel panel-primary">
   <div class="panel-heading"><%= @artist.name %></div>
   <h4>Songs</h4>
   <div class="panel-body">
@@ -11,3 +18,4 @@
 </div>
 
 <%= link_to "Back", artists_path, class: "btn btn-default" %>
+<%= link_to "Edit", "#", class: "btn btn-primary" %>
