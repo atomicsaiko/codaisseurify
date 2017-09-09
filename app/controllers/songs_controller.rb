@@ -11,6 +11,11 @@ class SongsController < ApplicationController
     end
   end
 
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+  end
+
   private
 
   def set_artist
