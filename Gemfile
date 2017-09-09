@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+# File upload
+gem 'carrierwave', '0.11.2'
+# Client for Cloudinary SaaS
+gem 'cloudinary', '1.2.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
