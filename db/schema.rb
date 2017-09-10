@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20170909122024) do
     t.bigint "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "artist_id"
     t.index ["artist_id"], name: "index_photos_on_artist_id"
   end
 
