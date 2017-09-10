@@ -1,1 +1,24 @@
-<p>Artist Show page</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">Add a new song</div>
+    <div class="panel-body">
+    <%= render 'artists/form' %>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @artist.name %></div>
+  <h4>Songs</h4>
+  <div class="panel-body">
+    <ul>
+      <% @artist.songs.each do |song| %>
+      <li><%= song.name %> | Song ID: <%= song.id %> | <%= link_to "Delete song", artist_song_path(@artist, 3), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %></li>
+
+      <!-- Can't get the second id param to be filled with 'song.id'. For now used hardcoded integer -->
+      <!-- <li><#%= song.name %> | <#%= song.id %> | <#%= link_to "[ Delete ]", artist_song_path(@artist, song.id), method: :delete, data: { confirm: "Are you sure?" } %></li> -->
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= link_to "Back", artists_path, class: "btn btn-default" %>
+<%= link_to "Delete artist", artist_path(@artist.id), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }%>

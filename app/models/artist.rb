@@ -1,4 +1,4 @@
 class Artist < ApplicationRecord
-  has_many :songs
-  has_one :photo
+  has_many :songs, dependent: :destroy
+  has_one :photo, dependent: :destroy
 end
