@@ -13,7 +13,12 @@ class SongsController < ApplicationController
 
   def destroy
     @song = Song.find(params[:id])
-    @song.destroy
+
+    if @song.destroy
+      redirect_back fallback_location: artists_path, notice: "Song deleted!"
+    else
+      artist_path @artist
+    end
   end
 
   private
