@@ -2,12 +2,30 @@ class SongsController < ApplicationController
   before_action :set_artist
 
   def create
+    # @song = @artist.songs.create(song_params)
+    #
+    # if @song.save
+    #   redirect_to @song.artist, notice: "Song added!"
+    # else
+    #   redirect_to artist_path
+    # end
+
     @song = @artist.songs.create(song_params)
 
-    if @song.save
-      redirect_to @song.artist, notice: "Song added!"
-    else
-      redirect_to artist_path
+    respond_to do |format|
+      if @song.save
+        format.html { redirect_to @song.artist, notice: "Song added!" }
+        # format.json { render @artist, status: :created, location: @song }
+        format.json { redirect_to @song.artist, status: :created}
+        # format.json { redirect_back fallback_location: root_path, status: :created}
+        # format.json { render template: "artists/show", status: :created}
+        # format.json { render @song.artist, status: :created}
+
+
+      else
+        format.html { redirect_to artist_path }
+        format.json { render json: @song.errors, status: :unprocessable_entity }
+      end
     end
   end
 

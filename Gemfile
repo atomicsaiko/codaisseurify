@@ -33,6 +33,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'carrierwave', '0.11.2'
 # Client for Cloudinary SaaS
 gem 'cloudinary', '1.2.3'
+# Use it for AJAX
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
