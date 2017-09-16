@@ -43,22 +43,17 @@ function createSong(songName) {
   })
 }
 
-// function cleanUpDoneTodos(event) {
-//   event.preventDefault();
-//
-//   $.each($(".success"), function(index, tableRow) {
-//     todoId = $(tableRow).data('id');
-//     deleteSong(todoId);
-//   });
-// }
-
-function deleteSong(event) {
+function cleanUpAllSongs(event) {
   event.preventDefault();
-  console.log("Entering deleteSong function");
+
+  $.each($("li"), function(index, listItem) {
+    songId = $(listItem).data('id');
+    deleteSong(songId);
+  });
+}
+
+function deleteSong(songId) {
   var artistId = window.location.pathname.substr(-1);
-  console.log(this);
-  var songId = this.attr("href").substr(-1);
-  var listItem = $(this).parent()
 
   $.ajax({
     type: "DELETE",
@@ -68,11 +63,11 @@ function deleteSong(event) {
   })
   .done(function(data) {
     console.log(data);
-    $(listItem).remove();
+    $("li").remove();
   });
 }
 
 $(document).ready(function() {
   $("#add-song").bind('click', submitSong);
-  $("#delete-song").bind('click', deleteSong);
+  $("#delete-all-songs").bind('click', cleanUpAllSongs);
 });
