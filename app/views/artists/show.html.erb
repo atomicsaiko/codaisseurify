@@ -9,7 +9,7 @@
   <div class="panel-heading"><%= @artist.name %></div>
   <h4>Songs</h4>
   <div class="panel-body">
-    <ul>
+    <ul id="song-list">
       <% @artist.songs.each do |song| %>
       <li>
         <%= song.name %> | <%= link_to "Delete song",

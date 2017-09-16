@@ -16,9 +16,9 @@ class SongsController < ApplicationController
       if @song.save
         format.html { redirect_to @song.artist, notice: "Song added!" }
         # format.json { render @artist, status: :created, location: @song }
-        format.json { redirect_to @song.artist, status: :created}
+        # format.json { redirect_to @song.artist, status: :created}
         # format.json { redirect_back fallback_location: root_path, status: :created}
-        # format.json { render template: "artists/show", status: :created}
+        format.json { render template: "artists/show", status: :created}
         # format.json { render @song.artist, status: :created}
 
 
