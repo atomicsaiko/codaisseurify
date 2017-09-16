@@ -52,6 +52,15 @@ function cleanUpAllSongs(event) {
   });
 }
 
+function cleanUpSong(event) {
+  event.preventDefault();
+
+  var listItem = $(this).parent();
+  var songId = $(listItem).data('id');
+
+  deleteSong(songId);
+}
+
 function deleteSong(songId) {
   var artistId = window.location.pathname.substr(-1);
 
@@ -63,11 +72,13 @@ function deleteSong(songId) {
   })
   .done(function(data) {
     console.log(data);
-    $("li").remove();
+    // $("li").remove();
+    $('li[data-id="'+songId+'"]').remove();
   });
 }
 
 $(document).ready(function() {
   $("#add-song").bind('click', submitSong);
+  $("#delete-song").bind('click', cleanUpSong);
   $("#delete-all-songs").bind('click', cleanUpAllSongs);
 });
