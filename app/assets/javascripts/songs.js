@@ -12,7 +12,7 @@ function createSong(songName) {
 
   $.ajax({
     type: "POST",
-    url: "/api/artists/" + artistId + "/songs.json",
+    url: "/api/artists/" + artistId + "/songs",
     data: JSON.stringify({
       song: newSong
     }),
@@ -21,10 +21,9 @@ function createSong(songName) {
   })
   .done(function(data) {
     console.log("Song succesfully added")
-    console.log(data);
+    var songId = data.song.id;
 
-    var songId = data.id;
-    console.log("The song ID is:", songId); //Not getting songId back..
+    console.log("The song ID is:", songId);
     var deleteSongUri = `/artists/${artistId}/songs/${songId}`
 
     var deleteSongButton = $('<a class="btn btn-danger" data-confirm="Are you sure?" rel="nofollow" data-method="delete"</a>')
@@ -44,8 +43,36 @@ function createSong(songName) {
   })
 }
 
+// function cleanUpDoneTodos(event) {
+//   event.preventDefault();
+//
+//   $.each($(".success"), function(index, tableRow) {
+//     todoId = $(tableRow).data('id');
+//     deleteSong(todoId);
+//   });
+// }
+
+function deleteSong(event) {
+  event.preventDefault();
+  console.log("Entering deleteSong function");
+  var artistId = window.location.pathname.substr(-1);
+  console.log(this);
+  var songId = this.attr("href").substr(-1);
+  var listItem = $(this).parent()
+
+  $.ajax({
+    type: "DELETE",
+    url: "/api/artists/" + artistId + "/songs/" + songId,
+    contentType: "application/json",
+    dataType: "json"
+  })
+  .done(function(data) {
+    console.log(data);
+    $(listItem).remove();
+  });
+}
+
 $(document).ready(function() {
   $("#add-song").bind('click', submitSong);
-  // $("form").bind('submit', submitTodo);
-  // $("#clean-up").bind('click', cleanUpDoneTodos);
+  $("#delete-song").bind('click', deleteSong);
 });
