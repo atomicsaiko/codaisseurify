@@ -24,7 +24,7 @@ function createSong(songName) {
     console.log(data);
 
     var songId = data.id;
-    console.log("The song ID is:", songId);
+    console.log("The song ID is:", songId); //Not getting songId back..
     var deleteSongUri = `/artists/${artistId}/songs/${songId}`
 
     var deleteSongButton = $('<a class="btn btn-danger" data-confirm="Are you sure?" rel="nofollow" data-method="delete"</a>')
