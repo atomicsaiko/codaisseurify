@@ -12,7 +12,7 @@ function createSong(songName) {
 
   $.ajax({
     type: "POST",
-    url: "/artists/" + artistId + "/songs.json",
+    url: "/api/artists/" + artistId + "/songs.json",
     data: JSON.stringify({
       song: newSong
     }),
