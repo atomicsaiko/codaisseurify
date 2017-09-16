@@ -21,7 +21,7 @@ class Api::SongsController < ApplicationController
     song = Song.find(params[:id])
     song.destroy
 
-    render status: 200, json: {
+    render status: 204, json: {
       message: "Song successfully deleted"
     }.to_json
   end
@@ -33,6 +33,6 @@ class Api::SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:id, :name, :artist_id)
+    params.require(:song).permit(:name, :artist_id)
   end
 end

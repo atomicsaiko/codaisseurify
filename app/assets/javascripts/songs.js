@@ -53,16 +53,16 @@ function createSong(songName) {
 // }
 
 function deleteSong(event) {
-  event.preventDefault();
+  // event.preventDefault();
   console.log("Entering deleteSong function");
   var artistId = window.location.pathname.substr(-1);
-  console.log(this);
-  var songId = this.attr("href").substr(-1);
-  var listItem = $(this).parent()
+  // var songId = this.attr("href").substr(-1); // IF button has valid attribute
+  var songId = $(this).parent().data('id');
+  var listItem = $(this).parent();
 
   $.ajax({
     type: "DELETE",
-    url: "/api/artists/" + artistId + "/songs/" + songId,
+    url: "/api/artists/" + artistId + "/songs/" + songId + ".json",
     contentType: "application/json",
     dataType: "json"
   })

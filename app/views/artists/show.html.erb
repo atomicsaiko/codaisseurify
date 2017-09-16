@@ -11,12 +11,14 @@
   <div class="panel-body">
     <ul id="song-list">
       <% @artist.songs.each do |song| %>
-      <li>
+      <li data-id="<%= song.id.to_i %>">
         <%= song.name %> | <%= link_to "Delete song",
-                                       artist_song_path(@artist, song.id.to_i),
+                                       "#{artist_song_path(@artist, song.id.to_i)}",
+                                       #nil,
                                        id: "delete-song",
                                        class: "btn btn-danger",
                                        method: :delete,
+                                       remote: true,
                                        data: { confirm: "Are you sure?" }
                                        %>
       </li>
