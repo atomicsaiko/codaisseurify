@@ -11,14 +11,15 @@
   <div class="panel-body">
     <ul id="song-list">
       <% @artist.songs.each do |song| %>
-      <li>
-        <%= song.name %> | <%= link_to "Delete song",
-                                       artist_song_path(@artist, song.id.to_i),
-                                       id: "delete-song",
-                                       class: "btn btn-danger",
-                                       method: :delete,
-                                       data: { confirm: "Are you sure?" }
-                                       %>
+      <li data-id="<%= song.id.to_i %>">
+        <%= song.name %> |
+        <%= link_to "Delete song",
+                     artist_song_path(@artist, song.id.to_i),
+                     id: "delete-song",
+                     class: "btn btn-danger",
+                     method: :delete,
+                     data: { confirm: "Are you sure you want to delete this song?" }
+                     %>
       </li>
       <% end %>
     </ul>
@@ -30,5 +31,14 @@
             artist_path(@artist.id),
             class: "btn btn-danger",
             method: :delete,
-            data: { confirm: "Are you sure?" }
+            data: { confirm: "Are you sure you want to delete this artist and all their songs?" }
+            %>
+<%= link_to "Delete all songs",
+            #artist_path(@artist.id),
+            artist_song_path(@artist, '#'),
+            id: "delete-all-songs",
+            class: "btn btn-danger",
+            method: :delete,
+            remote: true,
+            data: { confirm: "You're about to delete all songs. Are you sure?" }
             %>
