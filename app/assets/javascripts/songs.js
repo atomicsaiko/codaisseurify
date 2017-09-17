@@ -53,6 +53,7 @@ function cleanUpAllSongs(event) {
 }
 
 function cleanUpSong(event) {
+  console.log("Entering cleanUpSong..")
   event.preventDefault();
 
   var listItem = $(this).parent();
@@ -67,7 +68,7 @@ function deleteSong(songId) {
 
   $.ajax({
     type: "DELETE",
-    url: `/api/artists/${artistId}/songs/${songId}.json`,
+    url: `/api/artists/${artistId}/songs/${songId}`,
     contentType: "application/json",
     dataType: "json"
   })

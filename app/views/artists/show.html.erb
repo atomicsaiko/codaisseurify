@@ -14,7 +14,7 @@
       <li data-id="<%= song.id.to_i %>">
         <%= song.name %> |
         <%= link_to "Delete song",
-                     artist_song_path(@artist, song.id.to_i),
+                     "/api" + artist_song_path(@artist, song.id.to_i),
                      id: "delete-song",
                      class: "btn btn-danger",
                      method: :delete,
