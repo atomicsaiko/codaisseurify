@@ -62,11 +62,12 @@ function cleanUpSong(event) {
 }
 
 function deleteSong(songId) {
+  console.log("Deleting song..")
   var artistId = window.location.pathname.substr(-1);
 
   $.ajax({
     type: "DELETE",
-    url: "/api/artists/" + artistId + "/songs/" + songId,
+    url: `/api/artists/${artistId}/songs/${songId}.json`,
     contentType: "application/json",
     dataType: "json"
   })

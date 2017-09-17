@@ -33,8 +33,8 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     if @song.destroy
-      # redirect_back fallback_location: artists_path, notice: "Song deleted!"
-      redirect_to root_path, notice: "song deleted"
+      format.html { redirect_back fallback_location: @artist, notice: "Song deleted!" }
+      format.json { redirect_to @artist, status: 303, notice: "Song deleted!" }
     else
       artist_path @artist
     end

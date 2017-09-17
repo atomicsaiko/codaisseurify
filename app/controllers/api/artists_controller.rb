@@ -20,7 +20,7 @@ class Api::ArtistsController < ApplicationController
     artist = Artist.find(params[:id])
     artist.destroy
 
-    render status: 200, json: {
+    render status: 303, json: {
       message: "Artist successfully deleted"
     }.to_json
   end
